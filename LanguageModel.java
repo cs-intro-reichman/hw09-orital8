@@ -67,11 +67,11 @@ public class LanguageModel {
     // Computes and sets the probabilities (p and cp fields) of all the
 	// characters in the given list. */
 	public void calculateProbabilities(List probs) {				
-        int countch = 0;
+        int counter = 0;
         Node current = probs.getFirstNode();
         while (current != null)
         {
-            countch += current.cp.count;
+            counter += current.cp.count;
             current = current.next;
         }
 
@@ -79,8 +79,8 @@ public class LanguageModel {
         current = probs.getFirstNode();
         while (current != null)
         {
-            current.cp.p = (double) current.cp.count / countch;
-            currentcp += (double) current.cp.count / countch;;
+            current.cp.p = (double) current.cp.count / counter;
+            currentcp += (double) current.cp.count / counter;;
             current.cp.cp = currentcp;
             current = current.next;
         }
